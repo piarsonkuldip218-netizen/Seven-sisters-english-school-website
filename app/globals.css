@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-feature-settings: "kern" 1, "liga" 1, "ss01" 1;
+    background-color: #F8F4E9;
+    color: #1A1A1A;
+  }
+
+  /* Editorial typography defaults */
+  h1, h2, h3, h4 {
+    font-family: var(--font-playfair), Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+
+  ::selection {
+    background-color: #C9A961;
+    color: #0A1628;
+  }
+}
+
+@layer components {
+  /* Scroll section perf — content-visibility for off-screen sections */
+  .scroll-section {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 800px;
+  }
+
+  /* Editorial container */
+  .container-editorial {
+    @apply mx-auto px-6 sm:px-8 lg:px-12;
+    max-width: 1280px;
+  }
+
+  .container-narrow {
+    @apply mx-auto px-6 sm:px-8 lg:px-12;
+    max-width: 960px;
+  }
+
+  /* Eyebrow (small label above headings) */
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-sans font-medium uppercase tracking-[0.18em] text-gold-400;
+  }
+
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold-300;
+  }
+
+  /* Section heading */
+  .heading-section {
+    @apply font-serif text-display-xl font-medium text-navy;
+  }
+
+  /* Body prose */
+  .prose-editorial {
+    @apply font-sans text-base leading-relaxed text-ink-soft sm:text-lg;
+  }
+
+  /* Gold underline accent for links */
+  .link-gold {
+    @apply relative font-medium text-navy transition-colors hover:text-gold-400;
+  }
+
+  .link-gold::after {
+    content: "";
+    @apply absolute bottom-0 left-0 h-px w-0 bg-gold-300 transition-all duration-300;
+  }
+
+  .link-gold:hover::after {
+    @apply w-full;
+  }
+
+  /* Card */
+  .card-editorial {
+    @apply relative overflow-hidden rounded-sm border border-navy/10 bg-cream-50 p-8 transition-all duration-500;
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .card-editorial:hover {
+    @apply border-gold-200 shadow-[0_20px_40px_-20px_rgba(10,22,40,0.15)];
+  }
+
+  /* Disable hover effects on touch devices */
+  @media (hover: none) {
+    .card-editorial:hover {
+      @apply border-navy/10 shadow-none;
+    }
+  }
+
+  /* Decorative serif divider */
+  .divider-ornamental {
+    @apply flex items-center justify-center gap-3 text-gold-300;
+  }
+
+  .divider-ornamental::before,
+  .divider-ornamental::after {
+    content: "";
+    @apply h-px w-12 bg-gold-200;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-navy px-7 py-3.5 font-sans text-sm font-medium uppercase tracking-wider text-cream transition-all duration-300 hover:bg-navy-700 hover:shadow-lg;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm border border-navy px-7 py-3.5 font-sans text-sm font-medium uppercase tracking-wider text-navy transition-all duration-300 hover:bg-navy hover:text-cream;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm bg-gold-300 px-7 py-3.5 font-sans text-sm font-medium uppercase tracking-wider text-navy transition-all duration-300 hover:bg-gold-400 hover:shadow-lg;
+  }
+}
+
+@layer utilities {
+  /* Subtle grain texture overlay (premium magazine feel) */
+  .texture-grain::before {
+    content: "";
+    @apply pointer-events-none absolute inset-0 opacity-[0.025] mix-blend-multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}

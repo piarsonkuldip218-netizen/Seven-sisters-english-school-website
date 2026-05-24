@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1B2D4F"/>
+      <stop offset="100%" stop-color="#0A1628"/>
+    </linearGradient>
+    <pattern id="dots" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="10" cy="10" r="1" fill="#C9A961" opacity="0.15"/>
+    </pattern>
+  </defs>
+  <rect width="400" height="500" fill="url(#bg)"/>
+  <rect width="400" height="500" fill="url(#dots)"/>
+  <!-- Silhouette -->
+  <circle cx="200" cy="200" r="60" fill="#C9A961" opacity="0.35"/>
+  <path d="M 110 380 Q 110 290 200 290 Q 290 290 290 380 L 290 500 L 110 500 Z" fill="#C9A961" opacity="0.35"/>
+  <!-- Frame -->
+  <rect x="20" y="20" width="40" height="2" fill="#C9A961" opacity="0.6"/>
+  <rect x="20" y="20" width="2" height="40" fill="#C9A961" opacity="0.6"/>
+  <rect x="340" y="478" width="40" height="2" fill="#C9A961" opacity="0.6"/>
+  <rect x="378" y="440" width="2" height="40" fill="#C9A961" opacity="0.6"/>
+  <text x="200" y="450" font-family="Georgia, serif" font-style="italic" font-size="14" text-anchor="middle" fill="#F8F4E9" opacity="0.5">Principal Photo</text>
+</svg>
