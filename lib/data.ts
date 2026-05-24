@@ -80,7 +80,7 @@ export const visionMission = {
 export const principalMessage = {
   name: "Biswajit Dhar",
   qualification: "M.A., B.Ed.",
-  photo: "/principal-placeholder.svg",
+  photo: "/principal.png",
   message:
     "At Seven Sister's English School, we believe education is not merely the transfer of knowledge — it is the cultivation of character, curiosity, and courage. Since 1988, we have walked alongside thousands of young learners, watching them blossom into confident, capable adults. Our committed faculty, modern infrastructure, and student-first philosophy create an environment where every child feels seen, supported, and inspired. I warmly invite you to be part of our growing family.",
 };
