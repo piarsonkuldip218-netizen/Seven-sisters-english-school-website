@@ -47,8 +47,8 @@ export default function Contact() {
                 },
                 {
                   icon: Clock,
-                  label: "Office Hours",
-                  lines: ["Monday — Saturday", "9:00 AM — 4:00 PM"],
+                  label: "School Hours",
+                  lines: ["Monday — Saturday", "8:15 AM — 4:00 PM"],
                 },
               ].map((item) => (
                 <div key={item.label} className="flex gap-5">

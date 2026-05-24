@@ -19,17 +19,17 @@ export const school = {
   affiliation: "SEBA (Board of Secondary Education, Assam)",
   classesOffered: "Nursery to Class X",
   email: "sses1988@gmail.com",
-  phone: "+91 00000 00000",
-  whatsapp: "+91 00000 00000",
-  whatsappRaw: "910000000000", // for wa.me link, no + or spaces
+  phone: "+91 88761 24126",
+  whatsapp: "+91 88761 24126",
+  whatsappRaw: "918876124126", // for wa.me link, no + or spaces
   address: {
-    line1: "Seven Sister's English School",
-    line2: "Rangapara, Sonitpur",
+    line1: "Ward No. 3, Dhulapadung T.E.",
+    line2: "Sonitpur",
     state: "Assam",
     pincode: "784505",
     country: "India",
   },
-  mapEmbed: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3553.0!2d92.66!3d26.83!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sRangapara%2C%20Assam!5e0!3m2!1sen!2sin!4v1700000000000",
+  mapEmbed: "https://www.google.com/maps?q=Seven+Sister%27s+English+School+Dhulapadung+Sonitpur+Assam&output=embed",
   social: {
     facebook: "",
     instagram: "",
