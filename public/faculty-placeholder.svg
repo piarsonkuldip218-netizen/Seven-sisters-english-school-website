@@ -1,13 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="fbg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#F0EAD6"/>
-      <stop offset="100%" stop-color="#E5DCBE"/>
+      <stop offset="0%" stop-color="#1E2548"/>
+      <stop offset="100%" stop-color="#0A0E27"/>
     </linearGradient>
   </defs>
   <rect width="300" height="400" fill="url(#fbg)"/>
-  <!-- Silhouette -->
-  <circle cx="150" cy="150" r="50" fill="#0A1628" opacity="0.18"/>
-  <path d="M 75 290 Q 75 215 150 215 Q 225 215 225 290 L 225 400 L 75 400 Z" fill="#0A1628" opacity="0.18"/>
-  <text x="150" y="370" font-family="Georgia, serif" font-style="italic" font-size="13" text-anchor="middle" fill="#0A1628" opacity="0.45">Faculty Photo</text>
+  <circle cx="150" cy="150" r="50" fill="#F4C95D" opacity="0.3"/>
+  <path d="M 75 290 Q 75 215 150 215 Q 225 215 225 290 L 225 400 L 75 400 Z" fill="#F4C95D" opacity="0.3"/>
+  <text x="150" y="370" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="11" text-anchor="middle" fill="#F4C95D" opacity="0.6" letter-spacing="2">FACULTY</text>
 </svg>

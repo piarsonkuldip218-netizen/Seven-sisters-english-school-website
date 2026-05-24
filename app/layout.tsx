@@ -1,19 +1,14 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import { school } from "@/lib/data";
 import { asset } from "@/lib/path";
 import "./globals.css";
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: "--font-playfair",
-  display: "swap",
-});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -47,8 +42,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
-      <body className="bg-cream text-ink antialiased">{children}</body>
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

@@ -1,56 +1,52 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight, GraduationCap } from "lucide-react";
+import { ArrowRight, GraduationCap, Star, Sparkles } from "lucide-react";
 import { school } from "@/lib/data";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate flex min-h-[100svh] items-center overflow-hidden bg-navy text-cream"
+      className="relative isolate flex min-h-[100svh] items-center overflow-hidden pt-28 pb-16 lg:pt-0 lg:pb-0"
     >
-      {/* Decorative ornamental pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle at 25% 25%, #C9A961 1px, transparent 1px), radial-gradient(circle at 75% 75%, #C9A961 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
+      {/* Background blobs */}
+      <div className="bg-blob top-[-15%] left-[-10%] h-[480px] w-[480px] bg-gold-300/20 animate-float-slow" />
+      <div className="bg-blob bottom-[-15%] right-[-10%] h-[520px] w-[520px] bg-ice-400/15 animate-float-medium" />
+      <div className="bg-blob top-[40%] left-[35%] h-[320px] w-[320px] bg-gold-200/10 animate-float-fast" />
 
-      {/* Top-left ornamental frame */}
-      <div className="pointer-events-none absolute left-6 top-28 hidden h-32 w-32 border-l border-t border-gold-300/30 lg:block" />
-      {/* Bottom-right ornamental frame */}
-      <div className="pointer-events-none absolute bottom-12 right-6 hidden h-32 w-32 border-b border-r border-gold-300/30 lg:block" />
+      {/* Dot pattern overlay */}
+      <div className="absolute inset-0 dot-pattern opacity-60" />
 
-      <div className="container-editorial relative z-10 grid items-center gap-12 py-24 lg:grid-cols-12 lg:py-0">
+      <div className="container-wide relative z-10 grid items-center gap-16 lg:grid-cols-12">
         {/* Left content */}
         <div className="lg:col-span-7">
-          {/* Eyebrow */}
+          {/* Eyebrow badge */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 flex items-center gap-3 text-xs font-medium uppercase tracking-[0.22em] text-gold-300"
+            className="inline-flex items-center gap-2 rounded-full glass px-4 py-2"
           >
-            <span className="block h-px w-10 bg-gold-300" />
-            Established {school.established}
-            <span className="opacity-50">·</span>
-            Reg. No. {school.registration}
+            <Sparkles size={14} className="text-gold-300" strokeWidth={2.5} />
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-white">
+              Established {school.established}
+            </span>
+            <span className="text-white/30">|</span>
+            <span className="text-xs font-bold uppercase tracking-[0.18em] text-gold-300">
+              Reg. {school.registration}
+            </span>
           </motion.div>
 
-          {/* School Name */}
+          {/* Heading */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1 }}
-            className="font-serif text-display-2xl font-medium leading-[0.98] text-cream"
+            className="mt-8 heading-display text-display-2xl"
           >
-            Seven Sister&rsquo;s
-            <br />
-            <span className="italic text-gold-300">English School</span>
+            <span className="block">Seven Sister&rsquo;s</span>
+            <span className="block text-gradient-gold">English School</span>
           </motion.h1>
 
           {/* Tagline */}
@@ -58,26 +54,30 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-8 max-w-xl font-sans text-lg leading-relaxed text-cream/80 sm:text-xl"
+            className="mt-6 max-w-xl text-lg font-medium leading-relaxed text-soft sm:text-xl"
           >
-            {school.tagline}. A legacy of academic excellence, cultural pride, and character — nurturing young minds in the heart of Assam since {school.established}.
+            {school.tagline}. A trusted name in education from the heart of Assam — shaping confident young minds since {school.established}.
           </motion.p>
 
-          {/* Meta info */}
+          {/* Meta info pills */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-cream/70"
+            className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <span className="flex items-center gap-2">
-              <GraduationCap size={16} className="text-gold-300" />
-              {school.classesOffered}
-            </span>
-            <span className="hidden h-4 w-px bg-cream/20 sm:block" />
-            <span>Affiliated with SEBA</span>
-            <span className="hidden h-4 w-px bg-cream/20 sm:block" />
-            <span>{school.address.line2}, {school.address.state}</span>
+            {[
+              { icon: GraduationCap, text: school.classesOffered },
+              { icon: Star, text: "SEBA Affiliated" },
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-center gap-2 rounded-full glass px-4 py-2 text-sm font-semibold text-white"
+              >
+                <item.icon size={14} className="text-gold-300" strokeWidth={2.5} />
+                {item.text}
+              </div>
+            ))}
           </motion.div>
 
           {/* CTAs */}
@@ -85,25 +85,46 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-12 flex flex-wrap items-center gap-4"
+            className="mt-10 flex flex-wrap items-center gap-4"
           >
-            <a
-              href="#admissions"
-              className="group inline-flex items-center gap-2 rounded-sm bg-gold-300 px-7 py-4 font-sans text-sm font-medium uppercase tracking-wider text-navy transition-all hover:bg-gold-400"
-            >
+            <a href="#admissions" className="btn-gold group">
               Apply for Admission
-              <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={18}
+                strokeWidth={2.5}
+                className="transition-transform group-hover:translate-x-1"
+              />
             </a>
-            <a
-              href="#about"
-              className="inline-flex items-center gap-2 rounded-sm border border-cream/30 px-7 py-4 font-sans text-sm font-medium uppercase tracking-wider text-cream transition-all hover:border-cream hover:bg-cream hover:text-navy"
-            >
+            <a href="#about" className="btn-glass">
               Discover Our Story
             </a>
           </motion.div>
+
+          {/* Stats strip */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="mt-14 grid max-w-2xl grid-cols-3 gap-4 sm:gap-8"
+          >
+            {[
+              { value: "35+", label: "Years" },
+              { value: "5000+", label: "Alumni" },
+              { value: "98%", label: "Pass Rate" },
+            ].map((stat) => (
+              <div key={stat.label} className="border-l-2 border-gold-300/40 pl-4">
+                <p className="text-2xl font-extrabold text-white sm:text-3xl">
+                  {stat.value}
+                </p>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.16em] text-white/60">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </motion.div>
         </div>
 
-        {/* Right ornamental medallion */}
+        {/* Right — Decorative crest */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -111,32 +132,45 @@ export default function Hero() {
           className="hidden lg:col-span-5 lg:block"
         >
           <div className="relative mx-auto aspect-square max-w-md">
-            {/* Outer ring */}
-            <div className="absolute inset-0 rounded-full border border-gold-300/30" />
-            <div className="absolute inset-6 rounded-full border border-gold-300/20" />
-            {/* Inner medallion */}
-            <div className="absolute inset-12 flex flex-col items-center justify-center rounded-full border border-gold-300/40 bg-navy-700/40 text-center">
-              <span className="font-serif text-7xl font-medium italic text-gold-300">
-                7S
-              </span>
-              <span className="mt-3 text-[10px] font-medium uppercase tracking-[0.3em] text-cream/60">
-                Since {school.established}
-              </span>
-              <div className="mt-3 h-px w-16 bg-gold-300/40" />
-              <span className="mt-3 font-serif text-xs italic text-cream/60">
-                Excellentia
-              </span>
+            {/* Outer rotating ring */}
+            <div className="absolute inset-0 rounded-full border border-gold-300/20 animate-spin-slow" />
+            <div className="absolute inset-6 rounded-full border border-gold-300/15" />
+
+            {/* Glass medallion */}
+            <div className="absolute inset-12 flex flex-col items-center justify-center overflow-hidden rounded-full waterglass">
+              <div className="relative z-10 flex flex-col items-center text-center">
+                <span className="text-[80px] font-black leading-none tracking-tighter text-gradient-gold">
+                  7S
+                </span>
+                <span className="mt-3 text-[10px] font-bold uppercase tracking-[0.3em] text-white/70">
+                  Since {school.established}
+                </span>
+                <div className="mt-3 h-px w-20 bg-gold-300/40" />
+                <span className="mt-3 text-xs font-bold uppercase tracking-wider text-gold-300">
+                  Excellentia
+                </span>
+              </div>
             </div>
+
+            {/* Floating accent dots */}
+            <div className="absolute right-0 top-1/4 h-3 w-3 rounded-full bg-gold-300 shadow-glow-gold animate-pulse-glow desktop-only" />
+            <div className="absolute bottom-1/4 left-0 h-2 w-2 rounded-full bg-ice-300 shadow-glow-ice animate-pulse-glow desktop-only" style={{ animationDelay: "0.8s" }} />
           </div>
         </motion.div>
       </div>
 
-      {/* Bottom scroll indicator */}
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 lg:flex">
-        <span className="text-[10px] font-medium uppercase tracking-[0.3em] text-cream/50">
+        <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white/40">
           Scroll
         </span>
-        <span className="block h-12 w-px bg-gradient-to-b from-gold-300/60 to-transparent" />
+        <div className="relative h-12 w-5 overflow-hidden rounded-full border border-white/20">
+          <motion.div
+            animate={{ y: [0, 24, 0] }}
+            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute left-1/2 top-1.5 h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-gold-300"
+          />
+        </div>
       </div>
     </section>
   );

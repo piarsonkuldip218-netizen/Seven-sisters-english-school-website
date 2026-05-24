@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import { school, navigation } from "@/lib/data";
 import clsx from "clsx";
 
@@ -22,55 +22,63 @@ export default function Navbar() {
       <header
         className={clsx(
           "fixed inset-x-0 top-0 z-50 transition-all duration-500",
-          scrolled
-            ? "bg-cream/95 shadow-[0_2px_24px_-12px_rgba(10,22,40,0.2)] backdrop-blur"
-            : "bg-transparent"
+          scrolled ? "py-2" : "py-4"
         )}
       >
-        <div className="container-editorial flex h-20 items-center justify-between">
-          {/* Logo / Brand */}
-          <a href="#home" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-navy text-cream">
-              <span className="font-serif text-lg font-semibold tracking-wider">7S</span>
-            </div>
-            <div className="hidden sm:block">
-              <p className="font-serif text-base font-semibold leading-tight text-navy">
-                {school.shortName}
-              </p>
-              <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-gold-400">
-                Est. {school.established}
-              </p>
-            </div>
-          </a>
-
-          {/* Desktop nav */}
-          <nav className="hidden items-center gap-8 lg:flex">
-            {navigation.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="font-sans text-sm font-medium text-navy/80 transition-colors hover:text-navy"
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-
-          {/* CTA + mobile toggle */}
-          <div className="flex items-center gap-3">
-            <a
-              href="#admissions"
-              className="hidden rounded-sm bg-navy px-5 py-2.5 font-sans text-xs font-medium uppercase tracking-wider text-cream transition-all hover:bg-navy-700 lg:inline-flex"
-            >
-              Apply Now
+        <div className="container-wide">
+          <div
+            className={clsx(
+              "flex items-center justify-between rounded-2xl transition-all duration-500",
+              scrolled ? "glass-strong px-4 py-2" : "px-2 py-2"
+            )}
+          >
+            {/* Logo */}
+            <a href="#home" className="flex items-center gap-3">
+              <div className="relative flex h-11 w-11 items-center justify-center overflow-hidden rounded-xl waterglass-gold">
+                <span className="relative z-10 font-extrabold text-base tracking-tight text-midnight-900">
+                  7S
+                </span>
+              </div>
+              <div className="hidden sm:block">
+                <p className="font-bold text-base leading-tight text-white">
+                  {school.shortName}
+                </p>
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-gold-300">
+                  Est. {school.established}
+                </p>
+              </div>
             </a>
-            <button
-              onClick={() => setOpen((o) => !o)}
-              className="flex h-11 w-11 items-center justify-center rounded-sm border border-navy/20 text-navy transition-colors hover:bg-navy hover:text-cream lg:hidden"
-              aria-label="Toggle menu"
-            >
-              {open ? <X size={20} /> : <Menu size={20} />}
-            </button>
+
+            {/* Desktop nav */}
+            <nav className="hidden items-center gap-1 lg:flex">
+              {navigation.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="rounded-lg px-4 py-2 text-sm font-semibold text-white/80 transition-colors hover:bg-white/5 hover:text-white"
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+
+            {/* CTA + mobile toggle */}
+            <div className="flex items-center gap-2">
+              <a
+                href="#admissions"
+                className="hidden items-center gap-1.5 rounded-xl waterglass-gold px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-midnight-900 transition-transform hover:translate-y-[-1px] lg:inline-flex"
+              >
+                Apply
+                <ArrowUpRight size={14} strokeWidth={2.5} />
+              </a>
+              <button
+                onClick={() => setOpen((o) => !o)}
+                className="flex h-11 w-11 items-center justify-center rounded-xl glass text-white transition-colors hover:bg-white/10 lg:hidden"
+                aria-label="Toggle menu"
+              >
+                {open ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -85,32 +93,37 @@ export default function Navbar() {
             className="fixed inset-0 z-40 lg:hidden"
           >
             <div
-              className="absolute inset-0 bg-navy/30 backdrop-blur-sm"
+              className="absolute inset-0 bg-midnight-950/70 backdrop-blur-md"
               onClick={() => setOpen(false)}
             />
             <motion.nav
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "tween", duration: 0.35 }}
-              className="absolute right-0 top-0 flex h-full w-72 flex-col bg-cream pt-24 pb-8"
+              transition={{ type: "tween", duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="absolute right-0 top-0 flex h-full w-80 flex-col glass-strong pt-24 pb-8"
             >
-              {navigation.map((item) => (
-                <a
+              {navigation.map((item, i) => (
+                <motion.a
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="border-b border-navy/10 px-8 py-4 font-serif text-lg text-navy transition-colors hover:bg-cream-200"
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.1 + i * 0.04 }}
+                  className="flex items-center justify-between border-b border-white/5 px-8 py-4 font-bold text-lg text-white transition-colors hover:bg-white/5"
                 >
                   {item.label}
-                </a>
+                  <ArrowUpRight size={16} className="text-gold-300" strokeWidth={2.5} />
+                </motion.a>
               ))}
               <a
                 href="#admissions"
                 onClick={() => setOpen(false)}
-                className="mx-8 mt-6 inline-flex items-center justify-center rounded-sm bg-navy px-6 py-3.5 font-sans text-sm font-medium uppercase tracking-wider text-cream"
+                className="mx-8 mt-8 inline-flex items-center justify-center gap-2 rounded-xl waterglass-gold px-6 py-4 font-bold uppercase tracking-wider text-midnight-900"
               >
                 Apply Now
+                <ArrowUpRight size={16} strokeWidth={2.5} />
               </a>
             </motion.nav>
           </motion.div>

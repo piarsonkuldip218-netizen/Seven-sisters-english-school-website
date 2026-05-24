@@ -86,12 +86,12 @@ export const principalMessage = {
 };
 
 export const vicePrincipal = {
-  name: "[Vice Principal Name]",
+  name: "Sita Rai",
   qualification: "M.A., B.Ed.",
-  subject: "[Subject taught]",
+  subject: "Senior Faculty",
   photo: "/principal-placeholder.svg",
   message:
-    "[Vice Principal's brief introduction — 40 to 60 words about leadership philosophy, role at the school, and welcome to parents/students.]",
+    "At Seven Sister's English School, leadership is about lifting every learner. Working alongside our dedicated faculty, my focus is on ensuring each student feels supported — academically, emotionally, and socially. We celebrate small wins, encourage bold questions, and build the discipline that turns potential into achievement. Welcome to our family.",
 };
 
 export const academics = {

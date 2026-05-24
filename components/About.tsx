@@ -1,12 +1,16 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { TrendingUp } from "lucide-react";
 import { aboutContent } from "@/lib/data";
 
 export default function About() {
   return (
-    <section id="about" className="scroll-section relative bg-cream py-24 sm:py-32">
-      <div className="container-editorial">
+    <section id="about" className="scroll-section relative py-28 sm:py-36">
+      {/* Subtle blob */}
+      <div className="bg-blob top-[20%] left-[-5%] h-[400px] w-[400px] bg-ice-400/8 animate-float-slow" />
+
+      <div className="container-wide relative z-10">
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-20">
           {/* Left: Heading + content */}
           <div className="lg:col-span-7">
@@ -17,7 +21,7 @@ export default function About() {
               transition={{ duration: 0.6 }}
               className="eyebrow mb-6"
             >
-              Our Story
+              About Our School
             </motion.div>
 
             <motion.h2
@@ -25,7 +29,7 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="heading-section mb-10"
+              className="heading-display text-display-xl mb-10"
             >
               {aboutContent.heading}
             </motion.h2>
@@ -35,20 +39,20 @@ export default function About() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="space-y-6"
+              className="space-y-5"
             >
-              <p className="prose-editorial text-xl text-ink first-letter:font-serif first-letter:text-5xl first-letter:font-medium first-letter:text-navy first-letter:mr-2 first-letter:float-left first-letter:leading-[0.85] first-letter:mt-1">
+              <p className="text-lg font-medium leading-relaxed text-soft sm:text-xl">
                 {aboutContent.intro}
               </p>
               {aboutContent.paragraphs.map((p, i) => (
-                <p key={i} className="prose-editorial">
+                <p key={i} className="text-base leading-relaxed text-muted sm:text-lg">
                   {p}
                 </p>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: Stats grid */}
+          {/* Right: Stats grid in glass */}
           <motion.div
             initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -56,29 +60,42 @@ export default function About() {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="lg:col-span-5"
           >
-            <div className="grid grid-cols-2 gap-px bg-navy/10 border border-navy/10">
-              {aboutContent.highlights.map((stat) => (
-                <div
+            <div className="grid grid-cols-2 gap-4">
+              {aboutContent.highlights.map((stat, i) => (
+                <motion.div
                   key={stat.label}
-                  className="bg-cream-50 p-8 transition-colors hover:bg-cream-100 sm:p-10"
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.5, delay: 0.4 + i * 0.08 }}
+                  className="waterglass relative rounded-2xl p-6 sm:p-7"
                 >
-                  <p className="font-serif text-4xl font-medium text-navy sm:text-5xl">
+                  <p className="relative z-10 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
                     {stat.value}
                   </p>
-                  <p className="mt-3 text-xs font-medium uppercase tracking-[0.18em] text-ink-soft">
+                  <p className="relative z-10 mt-2 text-xs font-bold uppercase tracking-[0.16em] text-gold-300">
                     {stat.label}
                   </p>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Editorial caption block */}
-            <div className="mt-8 flex items-start gap-4 border-l-2 border-gold-300 pl-6">
-              <p className="font-serif text-lg italic leading-relaxed text-ink-soft">
-                &ldquo;Education is the kindling of a flame, not the filling of a vessel.&rdquo;
-                <span className="mt-2 block text-sm not-italic text-ink-muted">— Socrates</span>
+            {/* Glass quote card */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+              className="mt-6 glass-gold rounded-2xl p-6"
+            >
+              <TrendingUp size={20} className="text-gold-300 mb-3" strokeWidth={2.5} />
+              <p className="text-base font-semibold leading-relaxed text-white">
+                Education is the kindling of a flame, not the filling of a vessel.
               </p>
-            </div>
+              <p className="mt-2 text-xs font-bold uppercase tracking-wider text-gold-300">
+                — Socrates
+              </p>
+            </motion.div>
           </motion.div>
         </div>
       </div>

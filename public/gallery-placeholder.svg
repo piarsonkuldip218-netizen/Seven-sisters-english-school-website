@@ -1,24 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice">
   <defs>
     <linearGradient id="gbg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#1B2D4F"/>
-      <stop offset="50%" stop-color="#0A1628"/>
-      <stop offset="100%" stop-color="#1B2D4F"/>
+      <stop offset="0%" stop-color="#1E2548"/>
+      <stop offset="50%" stop-color="#0A0E27"/>
+      <stop offset="100%" stop-color="#06091B"/>
     </linearGradient>
-    <pattern id="gp" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
-      <path d="M 0 15 L 15 0 M 15 30 L 30 15" stroke="#C9A961" stroke-width="0.4" opacity="0.2"/>
+    <pattern id="gp" x="0" y="0" width="32" height="32" patternUnits="userSpaceOnUse">
+      <circle cx="16" cy="16" r="1" fill="#F4C95D" opacity="0.2"/>
     </pattern>
   </defs>
   <rect width="600" height="450" fill="url(#gbg)"/>
   <rect width="600" height="450" fill="url(#gp)"/>
-  <!-- Centered icon -->
-  <g transform="translate(300 225)" stroke="#C9A961" stroke-width="1.5" fill="none" opacity="0.55">
+  <g transform="translate(300 225)" stroke="#F4C95D" stroke-width="1.5" fill="none" opacity="0.4">
     <rect x="-44" y="-32" width="88" height="64" rx="3"/>
     <circle cx="-22" cy="-12" r="6"/>
     <path d="M -44 18 L -10 -8 L 14 12 L 28 0 L 44 18"/>
   </g>
-  <text x="300" y="350" font-family="Georgia, serif" font-style="italic" font-size="16" text-anchor="middle" fill="#F8F4E9" opacity="0.55">Campus Photo</text>
-  <!-- Frame corners -->
-  <path d="M 20 20 L 50 20 M 20 20 L 20 50" stroke="#C9A961" stroke-width="1.5" opacity="0.45" fill="none"/>
-  <path d="M 580 430 L 550 430 M 580 430 L 580 400" stroke="#C9A961" stroke-width="1.5" opacity="0.45" fill="none"/>
+  <text x="300" y="350" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="13" text-anchor="middle" fill="#F4C95D" opacity="0.5" letter-spacing="3">CAMPUS PHOTO</text>
 </svg>

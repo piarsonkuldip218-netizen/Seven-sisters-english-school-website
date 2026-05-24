@@ -6,30 +6,23 @@ import { visionMission } from "@/lib/data";
 
 export default function VisionMission() {
   return (
-    <section className="scroll-section relative isolate overflow-hidden bg-navy py-24 text-cream sm:py-32">
-      {/* Decorative pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.04]"
-        style={{
-          backgroundImage:
-            "linear-gradient(45deg, #C9A961 25%, transparent 25%), linear-gradient(-45deg, #C9A961 25%, transparent 25%)",
-          backgroundSize: "80px 80px",
-        }}
-      />
+    <section className="scroll-section relative py-28 sm:py-36">
+      {/* Background accent */}
+      <div className="bg-blob top-[10%] right-[-10%] h-[440px] w-[440px] bg-gold-300/10 animate-float-medium" />
 
-      <div className="container-editorial relative z-10">
+      <div className="container-wide relative z-10">
         {/* Header */}
         <div className="mx-auto max-w-2xl text-center">
-          <div className="eyebrow mb-6 justify-center text-gold-300 [&::before]:bg-gold-300/40">
+          <div className="eyebrow mb-6 justify-center">
             Guiding Principles
           </div>
-          <h2 className="font-serif text-display-xl font-medium text-cream">
-            Vision &amp; Mission
+          <h2 className="heading-display text-display-xl">
+            Vision &amp; <span className="text-gradient-gold">Mission</span>
           </h2>
         </div>
 
-        {/* Vision + Mission cards */}
-        <div className="mt-16 grid gap-8 lg:grid-cols-2">
+        {/* Vision + Mission glass cards */}
+        <div className="mt-16 grid gap-6 lg:grid-cols-2">
           {[
             { icon: Compass, label: "Our Vision", body: visionMission.vision },
             { icon: Target, label: "Our Mission", body: visionMission.mission },
@@ -40,19 +33,19 @@ export default function VisionMission() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: idx * 0.15 }}
-              className="group relative overflow-hidden rounded-sm border border-cream/10 bg-navy-700/40 p-10 transition-all hover:border-gold-300/40"
+              className="waterglass rounded-3xl p-8 sm:p-10"
             >
-              <div className="mb-6 inline-flex h-12 w-12 items-center justify-center rounded-sm border border-gold-300/40 text-gold-300">
-                <item.icon size={20} strokeWidth={1.5} />
+              <div className="relative z-10">
+                <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl waterglass-gold">
+                  <item.icon size={22} strokeWidth={2.5} className="text-midnight-900 relative z-10" />
+                </div>
+                <h3 className="heading-section mb-4 text-2xl sm:text-3xl">
+                  {item.label}
+                </h3>
+                <p className="text-base font-medium leading-relaxed text-soft sm:text-lg">
+                  {item.body}
+                </p>
               </div>
-              <h3 className="mb-4 font-serif text-2xl font-medium text-cream">
-                {item.label}
-              </h3>
-              <p className="font-sans text-base leading-relaxed text-cream/80">
-                {item.body}
-              </p>
-              {/* Decorative corner */}
-              <div className="absolute right-6 top-6 h-6 w-6 border-r border-t border-gold-300/30" />
             </motion.div>
           ))}
         </div>
@@ -60,16 +53,16 @@ export default function VisionMission() {
         {/* Core Values */}
         <div className="mt-20">
           <div className="mx-auto mb-12 flex max-w-md flex-col items-center text-center">
-            <Sparkles size={20} className="mb-3 text-gold-300" strokeWidth={1.5} />
-            <h3 className="font-serif text-2xl font-medium text-cream">
+            <Sparkles size={24} className="mb-3 text-gold-300" strokeWidth={2} />
+            <h3 className="heading-section text-2xl sm:text-3xl">
               Core Values
             </h3>
-            <p className="mt-2 text-sm text-cream/60">
+            <p className="mt-2 text-sm font-medium text-muted">
               The principles that shape every classroom, every conversation, every choice.
             </p>
           </div>
 
-          <div className="grid gap-px bg-cream/10 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {visionMission.values.map((value, idx) => (
               <motion.div
                 key={value.title}
@@ -77,15 +70,15 @@ export default function VisionMission() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="bg-navy p-8 transition-colors hover:bg-navy-700"
+                className="glass rounded-2xl p-6 transition-transform hover:translate-y-[-4px]"
               >
-                <div className="mb-4 font-serif text-3xl italic text-gold-300">
+                <div className="mb-4 text-2xl font-extrabold text-gradient-gold">
                   {String(idx + 1).padStart(2, "0")}
                 </div>
-                <h4 className="mb-3 font-serif text-xl font-medium text-cream">
+                <h4 className="mb-2 text-lg font-bold text-white">
                   {value.title}
                 </h4>
-                <p className="text-sm leading-relaxed text-cream/70">
+                <p className="text-sm leading-relaxed text-muted">
                   {value.description}
                 </p>
               </motion.div>
