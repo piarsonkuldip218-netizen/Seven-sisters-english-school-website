@@ -78,7 +78,7 @@ export const visionMission = {
 };
 
 export const principalMessage = {
-  name: "[Principal Name]",
+  name: "Biswajit Dhar",
   qualification: "M.A., B.Ed.",
   photo: "/principal-placeholder.svg",
   message:
