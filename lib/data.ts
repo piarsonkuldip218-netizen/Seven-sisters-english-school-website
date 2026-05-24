@@ -85,6 +85,15 @@ export const principalMessage = {
     "At Seven Sister's English School, we believe education is not merely the transfer of knowledge — it is the cultivation of character, curiosity, and courage. Since 1988, we have walked alongside thousands of young learners, watching them blossom into confident, capable adults. Our committed faculty, modern infrastructure, and student-first philosophy create an environment where every child feels seen, supported, and inspired. I warmly invite you to be part of our growing family.",
 };
 
+export const vicePrincipal = {
+  name: "[Vice Principal Name]",
+  qualification: "M.A., B.Ed.",
+  subject: "[Subject taught]",
+  photo: "/principal-placeholder.svg",
+  message:
+    "[Vice Principal's brief introduction — 40 to 60 words about leadership philosophy, role at the school, and welcome to parents/students.]",
+};
+
 export const academics = {
   heading: "Academics",
   subheading: "A curriculum that balances rigour with curiosity",
@@ -112,7 +121,15 @@ export const academics = {
   ],
 };
 
-export const faculty = [
+export type FacultyMember = {
+  name: string;
+  subject: string;
+  qualification: string;
+  photo: string;
+  designation?: string; // optional: "HOD", "Senior Teacher", "Coordinator", etc.
+};
+
+export const faculty: FacultyMember[] = [
   // TODO: Replace with real faculty data + photos
   { name: "[Teacher Name 1]", subject: "English", qualification: "M.A., B.Ed.", photo: "/faculty-placeholder.svg" },
   { name: "[Teacher Name 2]", subject: "Mathematics", qualification: "M.Sc., B.Ed.", photo: "/faculty-placeholder.svg" },
